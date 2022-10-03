@@ -1,8 +1,7 @@
 package com.anachequer.labs;
 
-import java.util.Date;
-import java.text.DateFormat;
-import java.util.Calendar;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.stereotype.Component;
 
@@ -11,14 +10,10 @@ public class DataHora {
 	
 	public String obterDataHora() {
 		
-		Calendar calendar = Calendar.getInstance();
-		Date agora = calendar.getTime();
-		DateFormat dataHora = DateFormat.getDateTimeInstance();
-		
-		return dataHora.format(agora);
+		LocalDateTime localDateTime = LocalDateTime.now();
+		String dataHora = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+		return dataHora;
 		
 	}
 	
-	
-
 }
